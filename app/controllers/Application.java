@@ -13,7 +13,7 @@ public class Application extends Controller {
 
         User u = (User) renderArgs.get("user");
         if (!u.getType().equals(Constants.User.TEACHER)){
-            return;
+            forbidden("Acceso denegado. No posee permisos para realizar esta acción"); 
         }
     }
 
@@ -22,6 +22,7 @@ public class Application extends Controller {
             User u = User.loadUser(session.get("username"));
             if (u != null){
                 renderArgs.put("user", u);
+                
                 return;
             }
         }
