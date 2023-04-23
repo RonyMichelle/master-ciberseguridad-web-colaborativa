@@ -22,7 +22,6 @@ public class Application extends Controller {
             User u = User.loadUser(session.get("username"));
             if (u != null){
                 renderArgs.put("user", u);
-                
                 return;
             }
         }
